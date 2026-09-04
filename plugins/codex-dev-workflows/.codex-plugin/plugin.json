@@ -1,0 +1,29 @@
+{
+  "name": "codex-dev-workflows",
+  "version": "0.2.0",
+  "description": "Reusable software-development workflows and platform guidance for Codex.",
+  "homepage": "https://github.com/srajpal/codex-dev-workflows",
+  "repository": "https://github.com/srajpal/codex-dev-workflows",
+  "license": "MIT",
+  "keywords": ["codex", "skills", "workflows", "prompts", "software-development", "qa"],
+  "author": {
+    "name": "Codex Dev Workflows contributors"
+  },
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Codex Dev Workflows",
+    "shortDescription": "Reusable development workflows for Codex.",
+    "longDescription": "A skills-only library for planning, feature work, testing, game QA, debugging, review, release readiness, and handoffs.",
+    "developerName": "Codex Dev Workflows contributors",
+    "category": "Productivity",
+    "capabilities": [],
+    "brandColor": "#0B1220",
+    "composerIcon": "./assets/icon.png",
+    "logo": "./assets/logo.png",
+    "defaultPrompt": [
+      "Help me plan a new software project.",
+      "Test the feature I just implemented.",
+      "Review my changes for release readiness."
+    ]
+  }
+}
