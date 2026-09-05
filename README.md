@@ -10,9 +10,7 @@
   </p>
 </div>
 
-An open-source, skills-only plugin that turns a practical development prompt library into reusable workflows for Codex. It helps with project planning, agent instructions, feature work and testing, comprehensive QA, game QA, debugging, code review, release readiness, and session handoffs. Shared references add focused guidance for Flutter, JavaScript/TypeScript, Python, and Laravel/PHP.
-
-> This project does not add a custom pinned prompt sidebar. It uses the supported Codex skill and plugin format available today. See [the compatibility notes](docs/CODEX-COMPATIBILITY.md) and [roadmap](ROADMAP.md).
+An open-source, skills-only plugin that turns a practical development prompt library into reusable workflows for Codex. It helps with project planning, agent instructions, feature work and testing, comprehensive QA, debugging, code review, release readiness, and session handoffs. Shared references add focused guidance for Flutter, JavaScript/TypeScript, Python, and Laravel/PHP.
 
 ## What is included
 
@@ -23,7 +21,6 @@ An open-source, skills-only plugin that turns a practical development prompt lib
 | `$feature-development` | implement a focused feature with appropriate verification |
 | `$feature-testing` | test a just-completed feature, including edge cases and regressions |
 | `$comprehensive-qa` | perform a broad QA pass across software, apps, services, and games |
-| `$game-qa` | perform game-specific QA for rules, scoring, modes, and progression |
 | `$bug-investigation` | reproduce, isolate, fix, and verify a defect |
 | `$code-review` | review a change set for correctness, risk, and missing tests |
 | `$pre-release-review` | assess release readiness without making an unsupported release claim |
@@ -119,7 +116,7 @@ Then test changed skills in a new Codex session using both an explicit `$skill-n
 
 ## What works now vs. later
 
-- **Now:** installable skills, explicit `$` invocation, automatic skill matching, comprehensive and game-specific QA workflows, repository CI validation, and a repository-local marketplace package.
+- **Now:** installable skills, explicit `$` invocation, automatic skill matching, comprehensive QA, repository CI validation, and a repository-local marketplace package.
 - **Not provided:** custom persistent sidebar, pinned prompt buttons, or a one-click prompt-template panel. No supported extension point is assumed for those features.
 - **Later:** see [ROADMAP.md](ROADMAP.md).
 

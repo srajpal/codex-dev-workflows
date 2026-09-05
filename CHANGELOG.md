@@ -6,7 +6,8 @@ All notable changes to this project are documented here.
 
 ### Added
 
-- General-purpose `$comprehensive-qa` workflow, with game-specific checks included when applicable.
+- General-purpose `$comprehensive-qa` workflow with domain-specific checks when applicable.
+- Replaced the standalone `game-qa` workflow with the broader `$comprehensive-qa` workflow.
 - README workflow snippets for `$session-handoff`, `$resume-interrupted-task`, and `$comprehensive-qa`.
 - Dependency-free GitHub Actions validation for plugin metadata, skill front matter, marketplace paths, assets, and accidental local paths.
 
