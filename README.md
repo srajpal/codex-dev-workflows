@@ -4,12 +4,13 @@
   <p><strong>Reusable development workflows for Codex.</strong><br />Plan clearly. Test deliberately. Resume safely.</p>
   <p>
     <a href="https://github.com/srajpal/codex-dev-workflows"><img src="https://img.shields.io/badge/GitHub-open--source-181717?logo=github" alt="GitHub repository" /></a>
+    <a href="https://github.com/srajpal/codex-dev-workflows/actions/workflows/validate.yml"><img src="https://github.com/srajpal/codex-dev-workflows/actions/workflows/validate.yml/badge.svg" alt="Repository validation" /></a>
     <a href="LICENSE"><img src="https://img.shields.io/badge/license-MIT-0ea5e9.svg" alt="MIT license" /></a>
     <a href="https://learn.chatgpt.com/docs/plugins"><img src="https://img.shields.io/badge/Codex-plugin-0f766e.svg" alt="Codex plugin" /></a>
   </p>
 </div>
 
-An open-source, skills-only plugin that turns a practical development prompt library into reusable workflows for Codex. It helps with project planning, agent instructions, feature work and testing, game QA, debugging, code review, release readiness, and session handoffs. Shared references add focused guidance for Flutter, JavaScript/TypeScript, Python, and Laravel/PHP.
+An open-source, skills-only plugin that turns a practical development prompt library into reusable workflows for Codex. It helps with project planning, agent instructions, feature work and testing, comprehensive QA, game QA, debugging, code review, release readiness, and session handoffs. Shared references add focused guidance for Flutter, JavaScript/TypeScript, Python, and Laravel/PHP.
 
 > This project does not add a custom pinned prompt sidebar. It uses the supported Codex skill and plugin format available today. See [the compatibility notes](docs/CODEX-COMPATIBILITY.md) and [roadmap](ROADMAP.md).
 
@@ -21,7 +22,8 @@ An open-source, skills-only plugin that turns a practical development prompt lib
 | `$create-agent-instructions` | create concise repository instructions and documentation routing |
 | `$feature-development` | implement a focused feature with appropriate verification |
 | `$feature-testing` | test a just-completed feature, including edge cases and regressions |
-| `$game-qa` | perform a broad gameplay and engineering QA pass |
+| `$comprehensive-qa` | perform a broad QA pass across software, apps, services, and games |
+| `$game-qa` | perform game-specific QA for rules, scoring, modes, and progression |
 | `$bug-investigation` | reproduce, isolate, fix, and verify a defect |
 | `$code-review` | review a change set for correctness, risk, and missing tests |
 | `$pre-release-review` | assess release readiness without making an unsupported release claim |
@@ -77,23 +79,47 @@ The interruption happened after [last known step]. Check the working tree and
 existing notes first; preserve valid changes and report uncertainty explicitly.
 ```
 
+### Create a session handoff
+
+```text
+$session-handoff
+
+Prepare a handoff for the next session. Inspect the current working tree, recent
+changes, tests, decisions, risks, and blockers. Separate verified facts from
+assumptions and give the next session exact first steps.
+```
+
+### Run a comprehensive QA pass
+
+```text
+$comprehensive-qa
+
+Test the current product against its documented requirements and critical user
+journeys. Discover the repository's real validation commands, exercise edge
+cases and recovery paths, and report evidence, defects, risks, and remaining
+manual checks. If this is a game, include rules, scoring, progression, and
+save/restore behavior.
+```
+
 ### Use platform guidance
 
 Each workflow tells Codex to load the relevant platform file when it applies. You can also invoke `$platform-guidance` directly. The guidance does not invent project commands: it tells the agent to inspect the repository's documented tooling and configuration first.
 
 ## Development and validation
 
-Validate the plugin after changing the manifest or any skill:
+Validate the plugin locally after changing the manifest or any skill:
 
 ```powershell
 python C:\Users\<you>\.codex\skills\.system\plugin-creator\scripts\validate_plugin.py .\plugins\codex-dev-workflows
 ```
 
-Then test in a new Codex session using both an explicit `$skill-name` request and a natural-language request that should plausibly match the skill description. See [CONTRIBUTING.md](CONTRIBUTING.md) for authoring standards.
+Every push and pull request also runs the repository's dependency-free metadata check through [GitHub Actions](https://github.com/srajpal/codex-dev-workflows/actions/workflows/validate.yml). This is repository CI, not another Codex skill: it catches malformed metadata, missing skill files, broken marketplace paths, invalid front matter, missing assets, and accidental local paths. It does not run a user's application tests.
+
+Then test changed skills in a new Codex session using both an explicit `$skill-name` request and a natural-language request that should plausibly match the skill description. See [CONTRIBUTING.md](CONTRIBUTING.md) for authoring standards.
 
 ## What works now vs. later
 
-- **Now:** installable skills, explicit `$` invocation, automatic skill matching, and a repository-local marketplace package.
+- **Now:** installable skills, explicit `$` invocation, automatic skill matching, comprehensive and game-specific QA workflows, repository CI validation, and a repository-local marketplace package.
 - **Not provided:** custom persistent sidebar, pinned prompt buttons, or a one-click prompt-template panel. No supported extension point is assumed for those features.
 - **Later:** see [ROADMAP.md](ROADMAP.md).
 

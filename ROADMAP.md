@@ -7,12 +7,13 @@
 - Automatic selection when a request closely matches a skill description.
 - Local/repository marketplace packaging for testing and distribution.
 - Shared platform references loaded only when relevant.
+- Dependency-free repository validation on every push and pull request.
 
 ## Next
 
 - Validate each workflow against real open-source example projects.
 - Add opt-in variants for accessibility, documentation, and mobile release QA.
-- Add a lightweight automated repository check for metadata and internal links.
+- Add automated checks for documentation links and release artifacts.
 - Publish a release and repository marketplace instructions after a maintainer creates the GitHub repository.
 
 ## Deliberately not implemented
@@ -28,4 +29,3 @@ Plugins can include an MCP server with optional UI, but this project has no serv
 ### Automatic code changes
 
 These skills guide work; they do not grant broader permissions or replace repository-specific instructions. Each agent execution remains subject to its host's normal approvals and sandboxing.
-
