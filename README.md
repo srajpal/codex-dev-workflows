@@ -7,10 +7,13 @@
     <a href="https://github.com/srajpal/codex-dev-workflows/actions/workflows/validate.yml"><img src="https://github.com/srajpal/codex-dev-workflows/actions/workflows/validate.yml/badge.svg" alt="Repository validation" /></a>
     <a href="LICENSE"><img src="https://img.shields.io/badge/license-MIT-0ea5e9.svg" alt="MIT license" /></a>
     <a href="https://learn.chatgpt.com/docs/plugins"><img src="https://img.shields.io/badge/Codex-plugin-0f766e.svg" alt="Codex plugin" /></a>
+    <a href="https://chatgpt.com/plugins/plugins_6a9b7d9f2fa0819194b71d627744d569"><img src="https://img.shields.io/badge/OpenAI-published%20plugin-10a37f.svg" alt="Published OpenAI plugin" /></a>
   </p>
 </div>
 
 An open-source, skills-only plugin that turns a practical development prompt library into reusable workflows for Codex. It helps with project planning, agent instructions, feature work and testing, comprehensive QA, debugging, code review, release readiness, and session handoffs. Shared references add focused guidance for Flutter, JavaScript/TypeScript, Python, and Laravel/PHP.
+
+The published plugin is available in the [OpenAI Plugins Directory](https://chatgpt.com/plugins/plugins_6a9b7d9f2fa0819194b71d627744d569).
 
 ## What is included
 
