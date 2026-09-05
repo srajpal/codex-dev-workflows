@@ -128,6 +128,6 @@ The project is shared under the [MIT License](LICENSE), a permissive license tha
 
 The structure and supported-surface claims were checked against current official OpenAI documentation: [Build plugins](https://learn.chatgpt.com/docs/build-plugins), [Build skills](https://learn.chatgpt.com/docs/build-skills), and [Plugins](https://learn.chatgpt.com/docs/plugins).
 
-## Contributing and security
+## Policies, support, and security
 
-Please read [CONTRIBUTING.md](CONTRIBUTING.md) before proposing a workflow, and use [SECURITY.md](SECURITY.md) for responsible vulnerability reporting.
+Read the [privacy policy](PRIVACY.md), [terms of use](TERMS.md), and [support guide](SUPPORT.md). Please read [CONTRIBUTING.md](CONTRIBUTING.md) before proposing a workflow, and use [SECURITY.md](SECURITY.md) for responsible vulnerability reporting.

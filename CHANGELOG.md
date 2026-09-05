@@ -2,6 +2,13 @@
 
 All notable changes to this project are documented here.
 
+## [0.3.1] - 2026-09-04
+
+### Added
+
+- Public privacy policy, terms of use, and support pages for plugin submission and user guidance.
+- Public policy URLs in the plugin interface metadata.
+
 ## [0.3.0] - 2026-09-04
 
 ### Added

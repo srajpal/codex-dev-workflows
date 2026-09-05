@@ -1,6 +1,6 @@
 {
   "name": "codex-dev-workflows",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "description": "Reusable software-development workflows and platform guidance for Codex.",
   "homepage": "https://github.com/srajpal/codex-dev-workflows",
   "repository": "https://github.com/srajpal/codex-dev-workflows",
@@ -13,9 +13,12 @@
   "interface": {
     "displayName": "Codex Dev Workflows",
     "shortDescription": "Reusable development workflows for Codex.",
-    "longDescription": "A skills-only library for planning, feature work, testing, game QA, debugging, review, release readiness, and handoffs.",
+    "longDescription": "A skills-only library for planning, feature work, testing, comprehensive QA, debugging, review, release readiness, and handoffs.",
     "developerName": "Codex Dev Workflows contributors",
     "category": "Productivity",
+    "websiteURL": "https://github.com/srajpal/codex-dev-workflows",
+    "privacyPolicyURL": "https://github.com/srajpal/codex-dev-workflows/blob/master/PRIVACY.md",
+    "termsOfServiceURL": "https://github.com/srajpal/codex-dev-workflows/blob/master/TERMS.md",
     "capabilities": [],
     "brandColor": "#0B1220",
     "composerIcon": "./assets/icon.png",

@@ -38,6 +38,18 @@ def validate_manifest(errors: list[str]) -> None:
         errors.append("plugin manifest description must be non-empty")
     if manifest.get("skills") not in ("./skills", "./skills/"):
         errors.append("plugin manifest skills path must be ./skills/")
+    interface = manifest.get("interface")
+    if not isinstance(interface, dict):
+        errors.append("plugin manifest interface must be an object")
+    else:
+        expected_urls = {
+            "websiteURL": "https://github.com/srajpal/codex-dev-workflows",
+            "privacyPolicyURL": "https://github.com/srajpal/codex-dev-workflows/blob/master/PRIVACY.md",
+            "termsOfServiceURL": "https://github.com/srajpal/codex-dev-workflows/blob/master/TERMS.md",
+        }
+        for field, expected in expected_urls.items():
+            if interface.get(field) != expected:
+                errors.append(f"plugin interface {field} must point to its public repository page")
 
 
 def validate_marketplace(errors: list[str]) -> None:
