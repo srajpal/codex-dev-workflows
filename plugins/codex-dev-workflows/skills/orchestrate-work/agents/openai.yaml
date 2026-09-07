@@ -1,5 +1,5 @@
 interface:
-  display_name: "Orchestrate Work"
+  display_name: "Codex Dev Workflows: Orchestrate Work"
   short_description: "Coordinate complex work across parallel agents"
   default_prompt: "Use $orchestrate-work to plan and coordinate this task across suitable worker agents."
 

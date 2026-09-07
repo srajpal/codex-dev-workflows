@@ -2,6 +2,13 @@
 
 All notable changes to this project are documented here.
 
+## [0.4.1] - 2026-09-07
+
+### Fixed
+
+- Prefixed the `$orchestrate-work` display name with `Codex Dev Workflows` for consistency in the skill picker.
+- Shortened the plugin subtitle to comply with the OpenAI Plugins Directory limit.
+
 ## [0.4.0] - 2026-09-07
 
 ### Added
