@@ -104,6 +104,46 @@ known step was [step]. Reconstruct state from files, diffs, notes, and test outp
 Preserve valid changes, state uncertainty, and take the next safe action.
 ```
 
+## Orchestrate complex work
+
+```text
+$orchestrate-work
+
+Act as the coordinator for [goal]. First inspect the repository and define the
+acceptance criteria. Delegate only independent workstreams that can run safely in
+parallel, with exclusive file ownership and clear validation. Prefer lower-cost
+capable workers such as Luna with high reasoning when available. Review and
+integrate every result, then run final validation and report remaining risks.
+```
+
+For a small or tightly coupled change, ask the coordinator to keep the work local:
+
+```text
+$orchestrate-work
+
+Assess whether this task benefits from delegation. If it is small, tightly coupled,
+or likely to create overlapping edits, complete it directly and explain why.
+```
+
+If worker agents are unavailable, the workflow falls back to direct execution:
+
+```text
+$orchestrate-work
+
+Plan and complete [goal]. Use parallel workers only if collaboration is available;
+otherwise execute the plan directly without claiming that delegation occurred.
+```
+
+For work that shares a central file, assign that file to one owner:
+
+```text
+$orchestrate-work
+
+Coordinate the API, tests, and documentation for [feature]. Multiple workstreams
+need the shared schema file, so keep that file with the coordinator and delegate
+only work with exclusive ownership. Wait for all workers before final validation.
+```
+
 ## Use platform guidance
 
 ```text

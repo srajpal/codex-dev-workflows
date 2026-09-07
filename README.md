@@ -11,7 +11,7 @@
   </p>
 </div>
 
-An open-source, skills-only plugin that turns a practical development prompt library into reusable workflows for Codex. It helps with project planning, agent instructions, feature work and testing, comprehensive QA, debugging, code review, release readiness, and session handoffs. Shared references add focused guidance for Flutter, JavaScript/TypeScript, Python, and Laravel/PHP.
+An open-source, skills-only plugin that turns a practical development prompt library into reusable workflows for Codex. It helps with project planning, agent instructions, multi-agent orchestration, feature work and testing, comprehensive QA, debugging, code review, release readiness, and session handoffs. Shared references add focused guidance for Flutter, JavaScript/TypeScript, Python, and Laravel/PHP.
 
 The published plugin is available in the [OpenAI Plugins Directory](https://chatgpt.com/plugins/plugins_6a9b7d9f2fa0819194b71d627744d569).
 
@@ -29,6 +29,7 @@ The published plugin is available in the [OpenAI Plugins Directory](https://chat
 | `$pre-release-review` | assess release readiness without making an unsupported release claim |
 | `$session-handoff` | produce a precise handoff for the next working session |
 | `$resume-interrupted-task` | safely recover context and continue interrupted work |
+| `$orchestrate-work` | coordinate complex work across parallel worker agents |
 | `$platform-guidance` | load implementation/testing considerations for a supported stack |
 
 ## Repository layout
@@ -65,6 +66,17 @@ $feature-development
 Implement [feature]. The outcome is [behavior].
 Constraints: [compatibility, design, performance, non-goals].
 Read the relevant project instructions and documentation first.
+```
+
+### Orchestrate complex work
+
+```text
+$orchestrate-work
+
+Coordinate these updates as the primary agent. Divide only genuinely independent
+workstreams, prefer lower-cost capable workers such as Luna with high reasoning
+when available, prevent overlapping edits, integrate every result, and run final
+validation. Complete tightly coupled work directly.
 ```
 
 More ready-to-edit examples are in [examples](examples/README.md).

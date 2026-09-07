@@ -1,0 +1,7 @@
+interface:
+  display_name: "Orchestrate Work"
+  short_description: "Coordinate complex work across parallel agents"
+  default_prompt: "Use $orchestrate-work to plan and coordinate this task across suitable worker agents."
+
+policy:
+  allow_implicit_invocation: false

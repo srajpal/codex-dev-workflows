@@ -2,6 +2,14 @@
 
 All notable changes to this project are documented here.
 
+## [0.4.0] - 2026-09-07
+
+### Added
+
+- Explicit-use `$orchestrate-work` workflow for planning and coordinating independent work across parallel worker agents.
+- Cost-aware worker selection, exclusive edit ownership, centralized integration, and final verification guidance.
+- README and example coverage for the orchestration workflow.
+
 ## [0.3.1] - 2026-09-04
 
 ### Added
