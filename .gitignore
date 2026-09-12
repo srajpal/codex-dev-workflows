@@ -4,3 +4,7 @@ Thumbs.db
 .idea/
 .vscode/
 
+.venv/
+__pycache__/
+*.py[cod]
+codex-dev-workflows-*-plugin.zip

@@ -1,29 +1,25 @@
-# Codex compatibility and design choices
+# Codex compatibility
 
-This repository intentionally uses the smallest supported extension: a skills-only plugin.
+This repository uses a skills-only plugin. See [ARCHITECTURE.md](ARCHITECTURE.md) for package boundaries and validation.
 
-## What the format uses
+## Package format
 
-- `.codex-plugin/plugin.json` is the plugin manifest.
-- `skills/` contains focused skill directories, each with a required `SKILL.md` and YAML `name`/`description` metadata.
-- `.agents/plugins/marketplace.json` is a repository-local marketplace entry that points at `./plugins/codex-dev-workflows`.
+- `.codex-plugin/plugin.json` declares the plugin and skills directory.
+- Each skill has `SKILL.md` with `name` and `description` front matter.
+- `.agents/plugins/marketplace.json` points to `./plugins/codex-dev-workflows`.
+- Display assets are bundled and referenced by the manifest.
+- No MCP server, app, browser extension, hook, or scheduled task is included.
 
-The manifest declares only skills. It intentionally omits MCP servers, apps, browser extensions, hooks, scheduled tasks, and assets because none are needed for a portable prompt/workflow library.
+## Use and limits
 
-## Supported use model
+Select an installed workflow with `$skill-name`. Most skills also permit automatic matching. `orchestrate-work` is explicitly selected, as declared in its `agents/openai.yaml` policy. Start a fresh session after installation or an update so it can receive the new inventory.
 
-In Codex, installed plugin skills can be explicitly selected with `$skill-name`; Codex may also select a skill when the request matches its description. Use a new session after installing or updating a plugin so the active session receives the new skill inventory.
+The plugin provides instructions, not additional tool access. Delegation depends on the host's available tools and permissions. It does not add a persistent sidebar, pinned prompt buttons, or a one-click template panel.
 
-## Supported surfaces and limits
+Supported surfaces and installation controls change. Check the official documentation below for the Codex version being used; repository validation alone does not establish host compatibility. Record the host version and results when testing a release.
 
-Official documentation states that plugins work in Codex in the ChatGPT desktop app and that Codex CLI has a plugin browser. The Codex IDE extension does not support plugins. A plugin can contain skills, connectors, MCP servers, browser extensions, hooks, and scheduled-task templates, but including a capability in the platform does not make it necessary for this repository.
-
-This project has no supported API for a custom pinned sidebar or one-click prompt-button shelf. That remains a future idea rather than a promised feature.
-
-## Primary official references
+## Official references
 
 - [Build plugins](https://learn.chatgpt.com/docs/build-plugins)
 - [Build skills](https://learn.chatgpt.com/docs/build-skills)
 - [Use plugins](https://learn.chatgpt.com/docs/plugins)
-- [Skills and plugins overview](https://learn.chatgpt.com/docs/skills-and-plugins)
-

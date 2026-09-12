@@ -1,6 +1,6 @@
 # Examples
 
-Use a skill explicitly when you want a predictable workflow. Replace bracketed text with your project details.
+Choose the example closest to your task, replace the bracketed text, and paste it into a new Codex session after installing the plugin. The lines after the skill name are optional context; keep only what matters to your task.
 
 ## Start a project
 
@@ -111,9 +111,9 @@ $orchestrate-work
 
 Act as the coordinator for [goal]. First inspect the repository and define the
 acceptance criteria. Delegate only independent workstreams that can run safely in
-parallel, with exclusive file ownership and clear validation. Prefer lower-cost
-capable workers such as Luna with high reasoning when available. Review and
-integrate every result, then run final validation and report remaining risks.
+parallel, with exclusive file ownership and clear validation. Prefer a capable
+lower-cost worker with low reasoning for bounded tasks. Review and integrate every
+result, then run final validation and report remaining risks.
 ```
 
 For a small or tightly coupled change, ask the coordinator to keep the work local:
@@ -153,3 +153,7 @@ This is a [Flutter / JavaScript or TypeScript / Python / Laravel or PHP] project
 I am working on [task]. Identify the repository's actual tooling and apply only
 the relevant platform guidance.
 ```
+
+## If a workflow does not behave as expected
+
+Start with the explicit `$skill-name` form shown above and name the expected outcome. If the skill is not listed, confirm that the plugin is installed and start a new session. For installation and reporting help, see [the main troubleshooting guide](../README.md#troubleshooting) and [SUPPORT.md](../SUPPORT.md).

@@ -2,6 +2,13 @@
 
 All notable changes to this project are documented here.
 
+## [0.4.2] - 2026-09-11
+
+- Clarified privacy boundaries, user responsibilities, warranty exclusions, and liability limits; included the MIT License in the standalone plugin.
+- Clarified workflow authorization, untrusted input handling, and review-only checks.
+- Strengthened repository validation and added regression tests.
+- Added agent instructions, architecture and audit notes, and simpler setup and support guidance.
+
 ## [0.4.1] - 2026-09-07
 
 ### Fixed

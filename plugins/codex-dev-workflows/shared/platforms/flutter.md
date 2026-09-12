@@ -16,7 +16,7 @@ Use this reference only for Flutter/Dart projects. First inspect `pubspec.yaml`,
 Use the project-documented commands. When no different project convention exists, the usual baseline is:
 
 ```text
-dart format --set-exit-if-changed .
+dart format --output=none --set-exit-if-changed .
 flutter analyze
 flutter test
 ```
@@ -30,4 +30,3 @@ Run integration tests only when they exist or when the change requires them. Add
 - back navigation, deep links, app pause/resume, and persistence behavior
 - overflow, keyboard/focus behavior, and pointer/gesture conflicts
 - enabled controls that should be disabled during loading or a terminal game state
-

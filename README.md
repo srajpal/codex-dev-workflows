@@ -1,7 +1,7 @@
 <div align="center">
   <img src="plugins/codex-dev-workflows/assets/logo.png" alt="Codex Dev Workflows icon" width="160" />
   <h1>Codex Dev Workflows</h1>
-  <p><strong>Reusable development workflows for Codex.</strong><br />Plan clearly. Test deliberately. Resume safely.</p>
+  <p><strong>Reusable development workflows for Codex.</strong></p>
   <p>
     <a href="https://github.com/srajpal/codex-dev-workflows"><img src="https://img.shields.io/badge/GitHub-open--source-181717?logo=github" alt="GitHub repository" /></a>
     <a href="https://github.com/srajpal/codex-dev-workflows/actions/workflows/validate.yml"><img src="https://github.com/srajpal/codex-dev-workflows/actions/workflows/validate.yml/badge.svg" alt="Repository validation" /></a>
@@ -11,9 +11,9 @@
   </p>
 </div>
 
-An open-source, skills-only plugin that turns a practical development prompt library into reusable workflows for Codex. It helps with project planning, agent instructions, multi-agent orchestration, feature work and testing, comprehensive QA, debugging, code review, release readiness, and session handoffs. Shared references add focused guidance for Flutter, JavaScript/TypeScript, Python, and Laravel/PHP.
+An open-source, skills-only plugin for common software-development tasks: planning, agent instructions, orchestration, feature work, testing, QA, debugging, code review, release checks, and handoffs. It also includes focused guidance for Flutter, JavaScript/TypeScript, Python, and Laravel/PHP.
 
-The published plugin is available in the [OpenAI Plugins Directory](https://chatgpt.com/plugins/plugins_6a9b7d9f2fa0819194b71d627744d569).
+The project has a [published plugin listing](https://chatgpt.com/plugins/plugins_6a9b7d9f2fa0819194b71d627744d569). Availability can vary by Codex surface and account.
 
 ## What is included
 
@@ -46,17 +46,17 @@ The published plugin is available in the [OpenAI Plugins Directory](https://chat
 └── docs/
 ```
 
-## Install and use
+## Quick start
 
-Codex plugins are supported in the ChatGPT desktop app and Codex CLI; the Codex IDE extension does not support plugins. This repository is deliberately arranged as a repository-local marketplace, which is useful for testing and sharing once the project is hosted.
+Plugin support and installation steps can change. Check the [official plugin documentation](https://learn.chatgpt.com/docs/plugins) for the current supported surfaces and controls.
 
-1. Clone or download this repository.
-2. Add the repository marketplace using the plugin-management flow available in your Codex surface, pointing it at the repository root that contains `.agents/plugins/marketplace.json`.
-3. Install `codex-dev-workflows` from that marketplace.
-4. Start a **new** Codex session after installation.
-5. Type `$` and select a workflow, for example `$feature-testing`, then provide the feature context.
+1. Open the [published plugin listing](https://chatgpt.com/plugins/plugins_6a9b7d9f2fa0819194b71d627744d569) and install it if your Codex surface offers that option.
+2. Start a new Codex session so it can load the installed skills.
+3. Type `$`, select a workflow such as `$feature-testing`, and describe the task.
 
-In Codex CLI, use `/plugins` to browse configured marketplaces. After installation, start a new session before using the bundled skills. The exact commands and UI can evolve; the canonical plugin builder docs are linked below.
+To test this repository locally, clone or download it, then add its root as a local marketplace. The marketplace file at `.agents/plugins/marketplace.json` points to `plugins/codex-dev-workflows`. Follow the current [plugin-building documentation](https://learn.chatgpt.com/docs/build-plugins) for the exact UI or command for your Codex version.
+
+If a skill does not appear after installation, start a new session first. See [Troubleshooting](#troubleshooting) for more checks.
 
 ### Use a workflow
 
@@ -74,9 +74,9 @@ Read the relevant project instructions and documentation first.
 $orchestrate-work
 
 Coordinate these updates as the primary agent. Divide only genuinely independent
-workstreams, prefer lower-cost capable workers such as Luna with high reasoning
-when available, prevent overlapping edits, integrate every result, and run final
-validation. Complete tightly coupled work directly.
+workstreams, prefer a capable lower-cost worker with low reasoning for bounded
+tasks, prevent overlapping edits, integrate every result, and run final validation.
+Complete tightly coupled work directly.
 ```
 
 More ready-to-edit examples are in [examples](examples/README.md).
@@ -115,33 +115,44 @@ save/restore behavior.
 
 ### Use platform guidance
 
-Each workflow tells Codex to load the relevant platform file when it applies. You can also invoke `$platform-guidance` directly. The guidance does not invent project commands: it tells the agent to inspect the repository's documented tooling and configuration first.
+Workflows that need stack-specific guidance load the relevant platform file when it applies. You can also invoke `$platform-guidance` directly. The guidance tells the agent to inspect the repository's documented tooling and configuration before choosing commands.
 
 ## Development and validation
 
-Validate the plugin locally after changing the manifest or any skill:
+Read [CONTRIBUTING.md](CONTRIBUTING.md) before changing a workflow. The [architecture notes](docs/ARCHITECTURE.md) explain which files are installed with the plugin and which exist only to maintain this repository.
+
+Run the repository's dependency-free validation after changing the manifest, marketplace entry, assets, or any skill:
 
 ```powershell
-python C:\Users\<you>\.codex\skills\.system\plugin-creator\scripts\validate_plugin.py .\plugins\codex-dev-workflows
+python scripts/validate_repo.py
+python -m unittest discover -s scripts -p "test_*.py"
 ```
 
-Every push and pull request also runs the repository's dependency-free metadata check through [GitHub Actions](https://github.com/srajpal/codex-dev-workflows/actions/workflows/validate.yml). This is repository CI, not another Codex skill: it catches malformed metadata, missing skill files, broken marketplace paths, invalid front matter, missing assets, and accidental local paths. It does not run a user's application tests.
+Every push and pull request also runs the repository's dependency-free metadata check through [GitHub Actions](https://github.com/srajpal/codex-dev-workflows/actions/workflows/validate.yml). These checks cover the repository's metadata conventions, skill files, marketplace and asset paths, basic PNG structure, packaged license, and common local paths in selected public docs. They also run validator regression tests. They do not validate the full host schema, prove prompt safety, or run a user's application tests.
 
-Then test changed skills in a new Codex session using both an explicit `$skill-name` request and a natural-language request that should plausibly match the skill description. See [CONTRIBUTING.md](CONTRIBUTING.md) for authoring standards.
+Then test changed skills in a new Codex session using both an explicit `$skill-name` request and a natural-language request that should plausibly match the skill description. Record that as a live plugin test only if you actually installed the changed package and exercised it in a supported host.
 
-## What works now vs. later
+## Troubleshooting
 
-- **Now:** installable skills, explicit `$` invocation, automatic skill matching, comprehensive QA, repository CI validation, and a repository-local marketplace package.
-- **Not provided:** custom persistent sidebar, pinned prompt buttons, or a one-click prompt-template panel. No supported extension point is assumed for those features.
-- **Later:** see [ROADMAP.md](ROADMAP.md).
+- **The skill is missing:** confirm that `codex-dev-workflows` is installed, then start a new session. Existing sessions may keep their original skill inventory.
+- **Local installation fails:** confirm that you selected the repository root, which contains `.agents/plugins/marketplace.json`, rather than the plugin subdirectory.
+- **Validation fails:** run `python scripts/validate_repo.py` from the repository root and fix the paths or metadata named in the output.
+- **A workflow uses the wrong project command:** point it to the repository's own instructions and configuration. These skills are designed to discover project commands instead of assuming them.
+- **Still stuck:** follow [SUPPORT.md](SUPPORT.md) and include a minimal reproduction without private code or credentials.
+
+## Package scope
+
+- **Plugin:** twelve skill definitions, shared platform guidance, display assets, and the MIT License. Repository validation and the local marketplace entry are maintainer resources.
+- **Not included:** a custom sidebar, pinned prompt buttons, or a prompt-template panel.
+- **Planned ideas:** see [ROADMAP.md](ROADMAP.md).
 
 ## License
 
-The project is shared under the [MIT License](LICENSE), a permissive license that lets developers copy, adapt, and redistribute the workflows with attribution. The plugin manifest also declares `MIT` and links to this repository so marketplace metadata is complete.
+The project is shared under the [MIT License](LICENSE), a permissive license that lets developers copy, adapt, and redistribute the workflows while retaining the copyright and permission notices required by the license. The plugin manifest also declares `MIT` and links to this repository so marketplace metadata is complete.
 
-## Documentation sources
+## Official documentation
 
-The structure and supported-surface claims were checked against current official OpenAI documentation: [Build plugins](https://learn.chatgpt.com/docs/build-plugins), [Build skills](https://learn.chatgpt.com/docs/build-skills), and [Plugins](https://learn.chatgpt.com/docs/plugins).
+For current plugin and skill behavior, see OpenAI's [Build plugins](https://learn.chatgpt.com/docs/build-plugins), [Build skills](https://learn.chatgpt.com/docs/build-skills), and [Plugins](https://learn.chatgpt.com/docs/plugins) documentation.
 
 ## Policies, support, and security
 

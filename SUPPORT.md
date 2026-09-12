@@ -1,8 +1,10 @@
 # Support
 
+GitHub is the only support and privacy contact route. For privacy questions, contact the repository maintainers through an issue without posting personal or sensitive details. Ask for a private GitHub route when needed.
+
 ## Before opening an issue
 
-Please check the [README](README.md), [examples](examples/README.md), and [Codex compatibility notes](docs/CODEX-COMPATIBILITY.md). Confirm that you are using the latest version and include the exact skill name, installation method, host surface, and a minimal reproduction.
+Please check the [README troubleshooting steps](README.md#troubleshooting), [examples](examples/README.md), and [Codex compatibility notes](docs/CODEX-COMPATIBILITY.md). If possible, retry in a new session with the explicit `$skill-name` form before reporting a problem.
 
 ## Questions and bugs
 
@@ -15,6 +17,19 @@ When reporting a problem, include:
 - Codex surface used, such as desktop app or CLI
 - Expected behavior and observed behavior
 - Relevant validation output with sensitive values removed
+
+A useful minimal reproduction looks like this:
+
+```text
+Plugin version or commit: [value]
+Installation method: [published listing or local marketplace]
+Codex surface and version: [value]
+Skill: $[skill-name]
+Prompt: [smallest prompt that shows the problem]
+Expected: [result]
+Observed: [result]
+Validation output: [optional, with sensitive values removed]
+```
 
 ## Security reports
 
