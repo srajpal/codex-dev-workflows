@@ -7,6 +7,7 @@ This repository contains the Codex Dev Workflows plugin. Keep it a small, portab
 - [README.md](README.md): user setup and workflow selection.
 - [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md): package boundaries, instruction flow, and release checks.
 - [CONTRIBUTING.md](CONTRIBUTING.md): authoring and validation.
+- [docs/RELEASING.md](docs/RELEASING.md): GitHub and OpenAI publication steps, when a release is requested.
 - [docs/AUDIT.md](docs/AUDIT.md): prior audit evidence and remaining verification.
 
 ## Working rules
