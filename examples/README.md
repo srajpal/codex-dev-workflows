@@ -1,5 +1,7 @@
 # Examples
 
+New to the plugin? Start with the [three everyday workflows](../README.md#three-useful-starting-points) or the [small review demo](review-demo.md).
+
 Choose the example closest to your task, replace the bracketed text, and paste it into a new Codex session after installing the plugin. The lines after the skill name are optional context; keep only what matters to your task.
 
 ## Start a project
